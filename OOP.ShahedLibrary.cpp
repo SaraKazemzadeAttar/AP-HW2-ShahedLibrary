@@ -37,4 +37,49 @@ public:
     }
     
 };
+
+class Book
+{
+private:
+    int bookId;
+    string name;
+    BookType type;
+    Publisher publisher;
+    bool isBorrowed;
+
+public:
+    static int numOfBooks;
+
+    Book(string name, Publisher publisher, BookType type)
+    {
+        this->name = name;
+        this->publisher = publisher;
+        this->type = type;
+        numOfBooks++;
+        bookId = numOfBooks;
+    }
+    void showInfo()
+    {
+        cout << bookId << "." << name;
+    }
+    string getBookName()
+    {
+        return name;
+    }
+    BookType getBookType()
+    {
+        return type;
+    }
+    void BorrowBookToMember(Member member)
+    {
+        if (isBorrowed == false)
+        {
+            isBorrowed=true;
+        }
+        else
+        {
+            throw "This book is borrowed";
+        }
+    }
+};
 int Publisher::numOfPublishers = 0;
