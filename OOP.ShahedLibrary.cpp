@@ -37,4 +37,4 @@ public:
     }
     
 };
-
+int Publisher::numOfPublishers = 0;
