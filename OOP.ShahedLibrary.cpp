@@ -35,7 +35,6 @@ public:
     {
         return name;
     }
-    
 };
 
 class Book
@@ -74,7 +73,7 @@ public:
     {
         if (isBorrowed == false)
         {
-            isBorrowed=true;
+            isBorrowed = true;
         }
         else
         {
@@ -118,6 +117,7 @@ private:
     int position;
 
 public:
+    static int numOfLibraries;
 };
 
 int Publisher::numOfPublishers = 0;
