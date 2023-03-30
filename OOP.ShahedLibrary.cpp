@@ -82,4 +82,32 @@ public:
         }
     }
 };
+
+class Member
+{
+private:
+    string memberIdCode;
+    string name;
+    vector<Book> books;
+
+public:
+    static int capacityToBorrow;
+    Member(string id, string name)
+    {
+        memberIdCode = id;
+        this->name = name;
+    }
+    void getBookFromMember(Book book)
+    {
+        if (books.size() <= capacityToBorrow)
+        {
+            books.push_back(book);
+        }
+        else
+        {
+            throw "You are not allowed to borrow more than capacity";
+        }
+    }
+};
+
 int Publisher::numOfPublishers = 0;
