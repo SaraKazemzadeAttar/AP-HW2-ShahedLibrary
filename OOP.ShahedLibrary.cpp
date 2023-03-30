@@ -118,6 +118,14 @@ private:
 
 public:
     static int numOfLibraries;
+
+        Library(string name, int position)
+    {
+        this->name = name;
+        this->position = position;
+        numOfLibraries++;
+        libId = numOfLibraries;
+    }
 };
 
 int Publisher::numOfPublishers = 0;
