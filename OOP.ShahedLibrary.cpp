@@ -119,12 +119,24 @@ private:
 public:
     static int numOfLibraries;
 
-        Library(string name, int position)
+    Library(string name, int position)
     {
         this->name = name;
         this->position = position;
         numOfLibraries++;
         libId = numOfLibraries;
+    }
+    string getLibraryName()
+    {
+        return name;
+    }
+    int getLibraryId()
+    {
+        return libId;
+    }
+    int getPosition()
+    {
+        return position;
     }
 };
 
