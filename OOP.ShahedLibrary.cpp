@@ -109,5 +109,15 @@ public:
         }
     }
 };
+class Library
+{
+private:
+    int libId;
+    string name;
+    vector<Book> books;
+    int position;
+
+public:
+};
 
 int Publisher::numOfPublishers = 0;
