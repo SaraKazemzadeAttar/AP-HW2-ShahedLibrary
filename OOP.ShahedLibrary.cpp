@@ -31,6 +31,9 @@ public:
         publisherId = numOfPublishers;
     }
 
+    Publisher()
+    {
+    }
     string getPublisherName()
     {
         return name;
