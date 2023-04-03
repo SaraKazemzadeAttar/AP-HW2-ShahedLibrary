@@ -247,6 +247,17 @@ public:
         }
         throw "This library id is not available ";
     }
+    void addBook(int libId, Book book)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libId == libraries[i].getLibraryId())
+            {
+                libraries[i].addBook(book);
+            }
+        }
+        throw "This library id is not available ";
+    }
 };
 
 int Publisher::numOfPublishers = 0;
