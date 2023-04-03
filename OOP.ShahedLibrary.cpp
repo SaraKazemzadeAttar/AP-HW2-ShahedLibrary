@@ -194,6 +194,20 @@ public:
         }
         return typeOrganised;
     }
+    bool isThereThisBook(string name)
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books[i].getBookName() == name)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
