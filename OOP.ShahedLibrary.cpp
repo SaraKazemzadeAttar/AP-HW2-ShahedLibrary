@@ -210,4 +210,14 @@ public:
     }
 };
 
+class LibrariesHandler
+{
+private:
+    vector<Library> libraries;
+    vector<Member> members;
+
+public:
+
+};
+
 int Publisher::numOfPublishers = 0;
