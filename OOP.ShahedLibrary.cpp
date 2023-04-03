@@ -163,6 +163,17 @@ public:
         }
         throw "This book is not in this library";
     }
+    void addBook(Book book)
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (book.getBookName() != books[i].getBookName())
+            {
+                Book newBook(book);
+                books.push_back(newBook);
+            }
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
