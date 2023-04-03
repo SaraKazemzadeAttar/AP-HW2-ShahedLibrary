@@ -60,9 +60,10 @@ public:
         numOfBooks++;
         bookId = numOfBooks;
     }
-    void showInfo()
+    string showInfo()
     {
-        cout << bookId << "." << name;
+        string str = bookId + "." + name;
+        return str;
     }
     string getBookName()
     {
