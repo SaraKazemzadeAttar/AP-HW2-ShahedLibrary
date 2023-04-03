@@ -141,6 +141,10 @@ public:
     {
         return position;
     }
+    vector<Book> listOfBooks()
+    {
+        return books;
+    }
 };
 
 int Publisher::numOfPublishers = 0;
