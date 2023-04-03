@@ -174,6 +174,13 @@ public:
             }
         }
     }
+    string getBooksOfLib()
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            return books[i].showInfo();
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
