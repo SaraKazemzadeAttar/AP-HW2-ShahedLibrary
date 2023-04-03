@@ -150,7 +150,7 @@ public:
     {
         for (int i = 0; i < books.size(); i++)
         {
-            if (i==j)
+            if (i == j)
             {
                 return books[i];
             }
@@ -310,6 +310,24 @@ public:
         }
         throw "[]";
     }
+    string filterByTypeAndShowInfo(int libId, BookType type)
+    {
+        string typeFilteredShowInfo = "";
+        for (int i = 0; i < libraries.size(); i++) // find library
+        {
+            if (libId == libraries[i].getLibraryId())
+            {
+                for (int j = 0; j < libraries[i].listOfBooks().size(); j++) // find the book that has the same type
+                {
+                    if (type == libraries[i].listOfBooks()[j].getBookType()) // getBook because we do not access to books vector
+                    {
+                        typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName();
+                    }
+                }
+            }
+        }
+        return " ";
+    }
     int size()
     {
         return Library::numOfLibraries;
@@ -349,5 +367,3 @@ int Member::capacityToBorrow = 5;
 int Book::numOfBooks = 0;
 int Library::numOfLibraries = 0;
 int Library::numOfMembers = 0;
-
-
