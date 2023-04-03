@@ -342,3 +342,9 @@ public:
 };
 
 int Publisher::numOfPublishers = 0;
+int Member::capacityToBorrow = 5;
+int Book::numOfBooks = 0;
+int Library::numOfLibraries = 0;
+int Library::numOfMembers = 0;
+
+
