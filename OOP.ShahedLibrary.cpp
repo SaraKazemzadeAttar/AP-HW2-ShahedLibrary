@@ -258,6 +258,21 @@ public:
         }
         throw "This library id is not available ";
     }
+    void addMember(string name, string memberId)
+    {
+        for (int i = 0; i < Library::numOfMembers; i++)
+        {
+            if (memberId != members[i].getMemberId())
+            {
+                Member newMember(name, memberId);
+                members.push_back(newMember);
+            }
+            else
+            {
+                throw "This account has been registered";
+            }
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
