@@ -358,7 +358,7 @@ public:
                 left++;
             }
         }
-        return library[left];
+        return libraries[left];
     }
 };
 
