@@ -311,6 +311,34 @@ public:
     {
         return Library::numOfLibraries;
     }
+    Library findNearestLibraryByPosition(string name, int position)
+    {
+        vector<Library> libsHaveThisBook;
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].isThereThisBook(name) == true)
+            {
+                libsHaveThisBook.push_back(libraries[i]);
+            }
+            else
+            {
+                throw "-1";
+            }
+        }
+        int left = 0, right = libsHaveThisBook.size() - 1;
+        while (left < right)
+        {
+            if (abs(libraries[left].getPosition() - position) <= abs(libraries[right].getPosition() - position))
+            {
+                right--;
+            }
+            else
+            {
+                left++;
+            }
+        }
+        return library[left];
+    }
 };
 
 int Publisher::numOfPublishers = 0;
