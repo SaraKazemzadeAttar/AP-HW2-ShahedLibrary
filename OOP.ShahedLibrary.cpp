@@ -152,6 +152,17 @@ public:
             return books[i];
         }
     }
+    Book searchByName(string name)
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (name == books[i].getBookName())
+            {
+                return books[i];
+            }
+        }
+        throw "This book is not in this library";
+    }
 };
 
 int Publisher::numOfPublishers = 0;
