@@ -307,6 +307,10 @@ public:
         }
         throw "[]";
     }
+    int size()
+    {
+        return Library::numOfLibraries;
+    }
 };
 
 int Publisher::numOfPublishers = 0;
