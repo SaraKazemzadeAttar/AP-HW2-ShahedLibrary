@@ -182,6 +182,18 @@ public:
             return books[i].showInfo();
         }
     }
+    vector<Book> searchByType(BookType type)
+    {
+        vector<Book> typeOrganised;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books[i].getBookType() == type)
+            {
+                typeOrganised.push_back(books[i]);
+            }
+        }
+        return typeOrganised;
+    }
 };
 
 int Publisher::numOfPublishers = 0;
