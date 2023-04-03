@@ -146,11 +146,14 @@ public:
     {
         return books;
     }
-    Book getBook()
+    Book getBook(int j)
     {
         for (int i = 0; i < books.size(); i++)
         {
-            return books[i];
+            if (i==j)
+            {
+                return books[i];
+            }
         }
     }
     Book searchByName(string name)
