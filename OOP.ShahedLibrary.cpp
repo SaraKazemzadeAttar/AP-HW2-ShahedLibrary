@@ -123,6 +123,7 @@ private:
 
 public:
     static int numOfLibraries;
+    static int numOfMembers;
 
     Library(string name, int position)
     {
