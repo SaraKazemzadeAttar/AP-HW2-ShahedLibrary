@@ -260,7 +260,7 @@ public:
     }
     void addMember(string name, string memberId)
     {
-        for (int i = 0; i < Library::numOfMembers; i++)//?
+        for (int i = 0; i < Library::numOfMembers; i++) //?
         {
             if (memberId != members[i].getMemberId())
             {
@@ -294,6 +294,18 @@ public:
             }
         }
         return " ";
+    }
+    vector<Book> filterByType(int libId, BookType type)
+    {
+        vector<Book> typeFilter;
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libId == libraries[i].getLibraryId())
+            {
+                return libraries[i].searchByType(type);
+            }
+        }
+        throw "[]";
     }
 };
 
