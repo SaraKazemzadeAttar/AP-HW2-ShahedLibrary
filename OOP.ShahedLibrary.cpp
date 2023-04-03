@@ -112,6 +112,10 @@ public:
             throw "You are not allowed to borrow more than capacity";
         }
     }
+    string getMemberId()
+    {
+        return memberIdCode;
+    }
 };
 class Library
 {
