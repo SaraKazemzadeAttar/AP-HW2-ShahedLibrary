@@ -284,6 +284,17 @@ public:
         }
         throw "[]";
     }
+    string getAllBooksInfo(int libId)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libId == libraries[i].getLibraryId())
+            {
+                return libraries[i].getInfoOfBooksOfLib();
+            }
+        }
+        return " ";
+    }
 };
 
 int Publisher::numOfPublishers = 0;
