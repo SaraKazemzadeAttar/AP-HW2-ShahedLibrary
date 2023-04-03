@@ -217,7 +217,25 @@ private:
     vector<Member> members;
 
 public:
-
+    void createLibrary(string name, int position)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].getLibraryName() == name)
+            {
+                throw "A library with this name already exists";
+            }
+            else if (libraries[i].getPosition() == position)
+            {
+                throw "There is now a library in this place";
+            }
+            else
+            {
+                Library newLibrary(name, position);
+                libraries.push_back(newLibrary);
+            }
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
