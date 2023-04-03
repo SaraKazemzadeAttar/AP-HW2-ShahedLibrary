@@ -174,7 +174,7 @@ public:
             }
         }
     }
-    string getBooksOfLib()
+    string getInfoOfBooksOfLib()
     {
         for (int i = 0; i < books.size(); i++)
         {
