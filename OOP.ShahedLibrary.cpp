@@ -145,6 +145,13 @@ public:
     {
         return books;
     }
+    Book getBook()
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            return books[i];
+        }
+    }
 };
 
 int Publisher::numOfPublishers = 0;
