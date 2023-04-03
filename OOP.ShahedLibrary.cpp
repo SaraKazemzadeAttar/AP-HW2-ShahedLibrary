@@ -185,7 +185,7 @@ public:
             return books[i].showInfo();
         }
     }
-    vector<Book> searchByType(BookType type)
+    vector<Book> listedByType(BookType type)
     {
         vector<Book> typeOrganised;
         for (int i = 0; i < books.size(); i++)
@@ -305,7 +305,7 @@ public:
         {
             if (libId == libraries[i].getLibraryId())
             {
-                return libraries[i].searchByType(type);
+                return libraries[i].listedByType(type);
             }
         }
         throw "[]";
