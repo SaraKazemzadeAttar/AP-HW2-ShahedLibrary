@@ -260,7 +260,7 @@ public:
     }
     void addMember(string name, string memberId)
     {
-        for (int i = 0; i < Library::numOfMembers; i++)
+        for (int i = 0; i < Library::numOfMembers; i++)//?
         {
             if (memberId != members[i].getMemberId())
             {
@@ -272,6 +272,17 @@ public:
                 throw "This account has been registered";
             }
         }
+    }
+    vector<Book> getAllBooks(int libId)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].getLibraryId() == libId)
+            {
+                return libraries[i].listOfBooks();
+            }
+        }
+        throw "[]";
     }
 };
 
