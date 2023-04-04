@@ -117,6 +117,7 @@ public:
         return memberIdCode;
     }
 };
+
 class Library
 {
 private:
@@ -341,22 +342,11 @@ public:
     }
     Library findNearestLibraryByPosition(string name, int position)
     {
-        vector<Library> libsHaveThisBook;
-        for (int i = 0; i < libraries.size(); i++)
-        {
-            if (libraries[i].isThereThisBook(name) == true)
-            {
-                libsHaveThisBook.push_back(libraries[i]);
-            }
-            else
-            {
-                throw "-1";
-            }
-        }
-        int left = 0, right = libsHaveThisBook.size() - 1;
+        listOfLibsHavetheBook(name);
+        int left = 0, right = listOfLibsHavetheBook(name).size() - 1;
         while (left < right)
         {
-            if (abs(libraries[left].getPosition() - position) <= abs(libraries[right].getPosition() - position))
+            if (abs(listOfLibsHavetheBook(name)[left].getPosition() - position) <= abs(listOfLibsHavetheBook(name)[right].getPosition() - position))
             {
                 right--;
             }
@@ -365,7 +355,7 @@ public:
                 left++;
             }
         }
-        return libraries[left];
+        return listOfLibsHavetheBook(name)[left];
     }
 };
 
