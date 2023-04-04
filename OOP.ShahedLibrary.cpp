@@ -177,12 +177,13 @@ public:
     {
         for (int i = 0; i < books.size(); i++)
         {
-            if (book.getBookName() != books[i].getBookName())
+            if (book.getBookName() == books[i].getBookName())
             {
-                Book newBook(book);
-                books.push_back(newBook);
+                throw "There is a book with this name in the library";
             }
         }
+        Book newBook(book);
+        books.push_back(newBook);
     }
     string getInfoOfBooksOfLib()
     {
@@ -327,7 +328,7 @@ public:
                 {
                     if (type == libraries[i].listOfBooks()[j].getBookType()) // getBook because we do not access to books vector
                     {
-                        typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName();
+                        typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName() + "\n";
                     }
                 }
             }
@@ -373,3 +374,7 @@ int Member::capacityToBorrow = 5;
 int Book::numOfBooks = 0;
 int Library::numOfLibraries = 0;
 int Library::numOfMembers = 0;
+
+int main()
+{
+}
