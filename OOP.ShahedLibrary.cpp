@@ -373,6 +373,10 @@ public:
         }
         return listOfLibsHavetheBook(name)[left];
     }
+    string findLibrariesHaveBook(string name, int position)
+    {
+        return sortLibrariesByDistance(listOfLibsHavetheBook(name), position);
+    }
 };
 
 int Publisher::numOfPublishers = 0;
