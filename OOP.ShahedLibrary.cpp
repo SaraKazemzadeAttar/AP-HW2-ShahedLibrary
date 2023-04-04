@@ -373,6 +373,25 @@ public:
         }
         return listOfLibsHavetheBook(name)[left];
     }
+    string sortLibrariesByDistance(vector<Library> libsHaveThisBook, int position)
+    {
+        for (int i = 0; i < libsHaveThisBook.size(); i++)
+        {
+            for (int j = 0; j < libsHaveThisBook.size() - 1; j++)
+            {
+                if (abs(libsHaveThisBook[j].getPosition()) > abs(libsHaveThisBook[j + 1].getPosition()))
+                {
+                    swap(libsHaveThisBook[j], libsHaveThisBook[j + 1]);
+                }
+            }
+        }
+        string sortedlibsHaveThisBook = "";
+        for (int i = 0; i < libsHaveThisBook.size(); i++)
+        {
+            sortedlibsHaveThisBook += to_string(i) + ". " + libsHaveThisBook[i].getLibraryName() + " " + to_string(libraries[i].getPosition() - position) + "\n";
+        }
+        return sortedlibsHaveThisBook;
+    }
     string findLibrariesHaveBook(string name, int position)
     {
         return sortLibrariesByDistance(listOfLibsHavetheBook(name), position);
