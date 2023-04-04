@@ -340,6 +340,22 @@ public:
     {
         return Library::numOfLibraries;
     }
+    vector<Library> listOfLibsHavetheBook(string name)
+    {
+        vector<Library> libsHaveThisBook;
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].isThereThisBook(name) == true)
+            {
+                libsHaveThisBook.push_back(libraries[i]);
+            }
+        }
+        if (libsHaveThisBook.size() == 0)
+        {
+            throw "-1";
+        }
+        return libsHaveThisBook;
+    }
     Library findNearestLibraryByPosition(string name, int position)
     {
         listOfLibsHavetheBook(name);
