@@ -271,18 +271,15 @@ public:
     }
     void addMember(string name, string memberId)
     {
-        for (int i = 0; i < Library::numOfMembers; i++) //?
+        for (int i = 0; i < Library::numOfMembers; i++)
         {
-            if (memberId != members[i].getMemberId())
-            {
-                Member newMember(name, memberId);
-                members.push_back(newMember);
-            }
-            else
+            if (memberId == members[i].getMemberId())
             {
                 throw "This account has been registered";
             }
         }
+        Member newMember(name, memberId);
+        members.push_back(newMember);
     }
     vector<Book> getAllBooks(int libId)
     {
@@ -327,7 +324,7 @@ public:
             {
                 for (int j = 0; j < libraries[i].listOfBooks().size(); j++) // find the book that has the same type
                 {
-                    if (type == libraries[i].listOfBooks()[j].getBookType()) // getBook because we do not access to books vector
+                    if (type == libraries[i].listOfBooks()[j].getBookType())
                     {
                         typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName() + "\n";
                     }
