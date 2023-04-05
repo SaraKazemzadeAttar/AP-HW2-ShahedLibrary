@@ -385,7 +385,7 @@ public:
         string sortedlibsHaveThisBook = "";
         for (int i = 0; i < libsHaveThisBook.size(); i++)
         {
-            sortedlibsHaveThisBook += to_string(i) + ". " + libsHaveThisBook[i].getLibraryName() + " " + to_string(libraries[i].getPosition() - position) + "\n";
+            sortedlibsHaveThisBook += to_string(i) + ". " + libsHaveThisBook[i].getLibraryName() + " " + to_string(libraries[i].getPosition() - position) + '\n';
         }
         return sortedlibsHaveThisBook;
     }
