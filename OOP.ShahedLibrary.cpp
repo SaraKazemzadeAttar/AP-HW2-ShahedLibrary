@@ -326,7 +326,7 @@ public:
                 {
                     if (type == libraries[i].listOfBooks()[j].getBookType())
                     {
-                        typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName() + "\n";
+                        typeFilteredShowInfo += to_string(j) + libraries[i].listedByType(type)[j].getBookName() + '\n';
                     }
                 }
             }
