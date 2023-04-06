@@ -512,12 +512,17 @@ int Library::numOfMembers = 0;
 
 int main()
 {
+    LibrariesHandler allOfLibraries;
+    Publisher ItsPublisher("ReadMore" ,"Tehran");
+    Publisher ItsPublisher2("Porteghal" , "Shiraz");
+    Book firstBook("Clean Code" , ItsPublisher , SCIENTIFIC);
+    Book secondBook( "Blindness" , ItsPublisher ,CLASSICS );
     try
     {
-        LibrariesHandler allOfLibraries;
+
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
-        cout << Library::numOfLibraries;
+        cout <<firstBook.showInfo();
     }
     catch (char const *e)
     {
