@@ -205,16 +205,6 @@ public:
     {
         return books;
     }
-    Book getBook(int j)
-    {
-        for (int i = 0; i < books.size(); i++)
-        {
-            if (i == j)
-            {
-                return books[i];
-            }
-        }
-    }
     Book searchByName(string name)
     {
         for (int i = 0; i < books.size(); i++)
@@ -240,9 +230,10 @@ public:
     }
     string getInfoOfBooksOfLib()
     {
+        string infoOfallBooks="";
         for (int i = 0; i < books.size(); i++)
         {
-            return books[i].showInfo();
+            infoOfallBooks+=books[i].showInfo() +'\n';
         }
     }
     vector<Book> listedByType(BookType type)
@@ -534,22 +525,24 @@ int main()
     Publisher ItsPublisher2("Porteghal", "Shiraz");
     Book firstBook("Clean Code", ItsPublisher, SCIENTIFIC);
     Book secondBook("Blindness", ItsPublisher, CLASSICS);
+    Library firstLib("Markazi", 20);
+    Library secondLib("Computer", 12);
+    Library thirdLib("Fani", 4);
     try
     {
+        // cout <<firstBook.showInfo() <<endl;
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
-        // cout <<firstBook.showInfo() <<endl;
-        Library firstLib("Markazi", 20);
-        Library secondLib("Computer", 12);
         // cout<<firstLib.showInfoOfLib()<<endl;//markazi
-        //cout << secondLib.showInfoOfLib() << endl;//com
-        allOfLibraries.addBook(1 , firstBook);
-        allOfLibraries.addBook(2 , firstBook);
-        cout<< allOfLibraries.findLibrariesHaveBook("Clean Code",10);
+        // cout << secondLib.showInfoOfLib() << endl;//com
+        //allOfLibraries.filterByTypeAndShowInfo(SCIENTIFIC);
+        allOfLibraries.addBook(1, firstBook);
+        allOfLibraries.addBook(2, firstBook);
+        allOfLibraries.addBook(3, firstBook);
+        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
     }
     catch (char const *e)
     {
         cout << "erorr :" << e << '\n';
     }
-    return 0;
 }
