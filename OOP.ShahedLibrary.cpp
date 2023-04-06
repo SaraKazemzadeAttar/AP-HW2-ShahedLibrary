@@ -116,6 +116,27 @@ public:
     {
         return memberIdCode;
     }
+    bool isMemberAllowedToBorrow(Book book)
+    {
+        if (books.size() <= capacityToBorrow)
+        {
+            if (book.isTheBookBorrowed() == false)
+            {
+                AddBookToBorrowedBooks(book);
+                return true;
+            }
+            else
+            {
+                throw "This book has been borrowed";
+                return false;
+            }
+        }
+        else
+        {
+            throw "You are not allowed to borrow more than capacity";
+            return false;
+        }
+    }
 };
 
 class Library
