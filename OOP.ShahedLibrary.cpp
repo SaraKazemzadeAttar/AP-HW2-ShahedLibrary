@@ -348,7 +348,9 @@ public:
                             if (libraries[i].listOfBooks()[z].getBookName() == name)
                             {
                                 if (members[i].isMemberAllowedToBorrow(libraries[i].listOfBooks()[z]) == true)
-                                    return true;
+                                bool borrowStatus = true;
+                                libraries[i].listOfBooks()[z].setTheStatusOfBook(borrowStatus);
+                                return true;
                             }
                             else
                             {
