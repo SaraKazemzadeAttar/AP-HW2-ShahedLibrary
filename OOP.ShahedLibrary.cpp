@@ -116,6 +116,10 @@ public:
     {
         return memberIdCode;
     }
+    void AddBookToBorrowedBooks(Book book)
+    {
+        books.push_back(book);
+    }
     bool isMemberAllowedToBorrow(Book book)
     {
         if (books.size() <= capacityToBorrow)
