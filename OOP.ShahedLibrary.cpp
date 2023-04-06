@@ -235,6 +235,7 @@ public:
         {
             infoOfallBooks+=books[i].showInfo() +'\n';
         }
+        return infoOfallBooks;
     }
     vector<Book> listedByType(BookType type)
     {
@@ -256,11 +257,8 @@ public:
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
         }
+        return false;
     }
 };
 
@@ -462,6 +460,7 @@ public:
             if (libraries[i].isThereThisBook(name) == true)
             {
                 libsHaveThisBook.push_back(libraries[i]);
+                cout<<"Hi";
             }
         }
         if (libsHaveThisBook.size() == 0)
@@ -525,24 +524,32 @@ int main()
     Publisher ItsPublisher2("Porteghal", "Shiraz");
     Book firstBook("Clean Code", ItsPublisher, SCIENTIFIC);
     Book secondBook("Blindness", ItsPublisher, CLASSICS);
+    Book thirdBook("Annabelle" , ItsPublisher2 , HORROR);
+    Book fourthBook("Harry Potter" , ItsPublisher2 , FANTASY);
     Library firstLib("Markazi", 20);
     Library secondLib("Computer", 12);
     Library thirdLib("Fani", 4);
+    Member firstMember ("0200226010" , "Sara");
+    Member secondMember ("0200220210" , "Fati");
     try
     {
         // cout <<firstBook.showInfo() <<endl;
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
+        allOfLibraries.createLibrary("Fani", 12);
         // cout<<firstLib.showInfoOfLib()<<endl;//markazi
         // cout << secondLib.showInfoOfLib() << endl;//com
         //allOfLibraries.filterByTypeAndShowInfo(SCIENTIFIC);
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        //cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        //allOfLibraries.findNearestLibraryByPosition("Clean Code", 4);
+        cout<<allOfLibraries.size();
     }
     catch (char const *e)
     {
         cout << "erorr :" << e << '\n';
     }
+    return 0;
 }
