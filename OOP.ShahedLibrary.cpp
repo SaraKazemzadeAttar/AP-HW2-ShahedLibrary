@@ -74,15 +74,15 @@ public:
     {
         return type;
     }
-    void BorrowBookToMember(Member member)
+    bool isTheBookBorrowed()
     {
         if (isBorrowed == false)
         {
-            isBorrowed = true;
+            return false;
         }
         else
         {
-            throw "This book is borrowed";
+            return true;
         }
     }
 };
