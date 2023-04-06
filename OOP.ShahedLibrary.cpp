@@ -519,7 +519,6 @@ int main()
     Book secondBook( "Blindness" , ItsPublisher ,CLASSICS );
     try
     {
-
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
         cout <<firstBook.showInfo();
