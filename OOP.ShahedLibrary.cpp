@@ -540,10 +540,12 @@ int main()
         allOfLibraries.createLibrary("Computer", 12);
         // cout <<firstBook.showInfo() <<endl;
         Library firstLib("Markazi", 20);
-        Library secondLib("Fani", 10);
-        // cout<<firstLib.showInfoOfLib()<<endl;
-        cout << secondLib.showInfoOfLib() << endl;
-        allOfLibraries.addBook(1, firstBook);
+        Library secondLib("Computer", 12);
+        // cout<<firstLib.showInfoOfLib()<<endl;//markazi
+        //cout << secondLib.showInfoOfLib() << endl;//fani
+        allOfLibraries.addBook(1 , firstBook);
+        allOfLibraries.addBook(2 , firstBook);
+        allOfLibraries.findLibrariesHaveBook("Clean Code",10);
     }
     catch (char const *e)
     {
