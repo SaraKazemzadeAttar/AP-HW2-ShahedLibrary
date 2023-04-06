@@ -31,7 +31,6 @@ public:
         numOfPublishers++;
         publisherId = numOfPublishers;
     }
-
     Publisher()
     {
     }
@@ -89,10 +88,12 @@ public:
     {
         if (BorrowStatus == false)
         {
+            isBorrowed=false;
             return false;
         }
         else
         {
+            isBorrowed=true;
             return true;
         }
     }
@@ -414,32 +415,34 @@ public:
     }
     bool returnBook(string memberId, int libId, string name)
     {
-        for (int i = 0; i < libraries.size(); i++)
+        for (int i = 0; i < libraries.size(); i++) // for libraries
         {
-            if (libraries[i].getLibraryId() == libId)
+            if (libraries[i].getLibraryId() == libId) // find library id
             {
-                for (int j = 0; j < libraries[i].listOfBooks().size(); j++)
+                for (int j = 0; j < libraries[i].listOfBooks().size(); j++) // for members of books vector
                 {
-                    if (libraries[i].listOfBooks()[j].getBookName() == name)
+                    if (libraries[i].listOfBooks()[j].getBookName() == name) // find the name of the book
                     {
-                        for (int j = 0; j < members.size(); j++)
+                        for (int z= 0; j < members.size(); z++) // for members
                         {
-                            if (members[i].getMemberId() == memberId)
+                            if (members[i].getMemberId() == memberId) // find member id
                             {
-                                if ((members[i].returnBookFromMember(libraries[i].listOfBooks()[j])) == true)
+                                if ((members[i].returnBookFromMember(libraries[i].listOfBooks()[z])) == true)
                                 {
+                                    bool borrowStatus = false;
+                                    libraries[i].listOfBooks()[z].setTheBorrowStatusOfBook(borrowStatus);
                                     return true;
                                 }
                                 else
                                 {
                                     return false;
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+                            } // end of finding member id
+                        }     // end of for members
+                    }         // end of finding the name of the book
+                }             // end of for members of books vector
+            }                 // end of finding library id
+        }                     // end of for libraries
     }
     int size()
     {
