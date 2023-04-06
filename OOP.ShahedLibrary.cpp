@@ -542,13 +542,14 @@ int main()
         Library firstLib("Markazi", 20);
         Library secondLib("Computer", 12);
         // cout<<firstLib.showInfoOfLib()<<endl;//markazi
-        //cout << secondLib.showInfoOfLib() << endl;//fani
+        //cout << secondLib.showInfoOfLib() << endl;//com
         allOfLibraries.addBook(1 , firstBook);
         allOfLibraries.addBook(2 , firstBook);
-        allOfLibraries.findLibrariesHaveBook("Clean Code",10);
+        cout<< allOfLibraries.findLibrariesHaveBook("Clean Code",10);
     }
     catch (char const *e)
     {
         cout << "erorr :" << e << '\n';
     }
+    return 0;
 }
