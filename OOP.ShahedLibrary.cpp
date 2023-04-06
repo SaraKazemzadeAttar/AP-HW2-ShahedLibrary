@@ -85,6 +85,17 @@ public:
             return true;
         }
     }
+    bool setTheBorrowStatusOfBook(bool BorrowStatus)
+    {
+        if (BorrowStatus == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 };
 
 class Member
@@ -374,7 +385,7 @@ public:
                             {
                                 if (members[i].isMemberAllowedToBorrow(libraries[i].listOfBooks()[z]) == true)
                                 bool borrowStatus = true;
-                                libraries[i].listOfBooks()[z].setTheStatusOfBook(borrowStatus);
+                                libraries[i].listOfBooks()[z].setTheBorrowStatusOfBook(borrowStatus);
                                 return true;
                             }
                             else
