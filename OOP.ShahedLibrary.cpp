@@ -62,7 +62,7 @@ public:
     }
     string showInfo()
     {
-        string str = to_string(bookId) + "." + name;
+        string str = to_string(bookId) + ". " + name;
         return str;
     }
     string getBookName()
@@ -184,6 +184,11 @@ public:
         numOfLibraries++;
         libId = numOfLibraries;
     }
+    string showInfoOfLib()
+    {
+        string str = to_string(libId) + ". " + name;
+        return str;
+    }
     string getLibraryName()
     {
         return name;
@@ -298,23 +303,35 @@ public:
     {
         for (int i = 0; i < libraries.size(); i++)
         {
-            if (libId == libraries[i].getLibraryId())
+            if (libraries[i].getLibraryId() == libId)
             {
+                for (int j = 0; j < libraries[i].listOfBooks().size(); j++)
+                {
+                    if (libraries[i].listOfBooks()[j].getBookName() == name)
+                    {
+                        throw "This library already has this Book";
+                    }
+                }
                 libraries[i].addBook(Book(name, publisher, type));
             }
         }
-        throw "This library id is not available ";
     }
     void addBook(int libId, Book book)
     {
         for (int i = 0; i < libraries.size(); i++)
         {
-            if (libId == libraries[i].getLibraryId())
+            if (libraries[i].getLibraryId() == libId)
             {
+                for (int j = 0; j < libraries[i].listOfBooks().size(); j++)
+                {
+                    if (libraries[i].listOfBooks()[j].getBookName() == book.getBookName())
+                    {
+                        throw "This library already has this Book";
+                    }
+                }
                 libraries[i].addBook(book);
             }
         }
-        throw "This library id is not available ";
     }
     void addMember(string name, string memberId)
     {
@@ -513,15 +530,20 @@ int Library::numOfMembers = 0;
 int main()
 {
     LibrariesHandler allOfLibraries;
-    Publisher ItsPublisher("ReadMore" ,"Tehran");
-    Publisher ItsPublisher2("Porteghal" , "Shiraz");
-    Book firstBook("Clean Code" , ItsPublisher , SCIENTIFIC);
-    Book secondBook( "Blindness" , ItsPublisher ,CLASSICS );
+    Publisher ItsPublisher("ReadMore", "Tehran");
+    Publisher ItsPublisher2("Porteghal", "Shiraz");
+    Book firstBook("Clean Code", ItsPublisher, SCIENTIFIC);
+    Book secondBook("Blindness", ItsPublisher, CLASSICS);
     try
     {
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
-        cout <<firstBook.showInfo();
+        // cout <<firstBook.showInfo() <<endl;
+        Library firstLib("Markazi", 20);
+        Library secondLib("Fani", 10);
+        // cout<<firstLib.showInfoOfLib()<<endl;
+        cout << secondLib.showInfoOfLib() << endl;
+        allOfLibraries.addBook(1, firstBook);
     }
     catch (char const *e)
     {
