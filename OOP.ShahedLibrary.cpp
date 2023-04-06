@@ -333,6 +333,33 @@ public:
         }
         return " ";
     }
+    bool borrow(string memberId, int libId, string name)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].getLibraryId() == libId)
+            {
+                for (int j = 0; j < members.size(); j++)
+                {
+                    if (members[i].getMemberId() == memberId)
+                    {
+                        for (int z = 0; z < libraries[i].listOfBooks().size(); z++)
+                        {
+                            if (libraries[i].listOfBooks()[z].getBookName() == name)
+                            {
+                                if (members[i].isMemberAllowedToBorrow(libraries[i].listOfBooks()[z]) == true)
+                                    return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     int size()
     {
         return Library::numOfLibraries;
