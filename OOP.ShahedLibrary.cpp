@@ -73,6 +73,17 @@ public:
     {
         return type;
     }
+    void setTheBorrowStatusOfBook(bool BorrowStatus)
+    {
+        if (BorrowStatus == false)
+        {
+            isBorrowed = false;
+        }
+        else
+        {
+            isBorrowed = true;
+        }
+    }
     bool isTheBookBorrowed()
     {
         if (isBorrowed == false)
@@ -81,19 +92,6 @@ public:
         }
         else
         {
-            return true;
-        }
-    }
-    bool setTheBorrowStatusOfBook(bool BorrowStatus)
-    {
-        if (BorrowStatus == false)
-        {
-            isBorrowed=false;
-            return false;
-        }
-        else
-        {
-            isBorrowed=true;
             return true;
         }
     }
@@ -423,7 +421,7 @@ public:
                 {
                     if (libraries[i].listOfBooks()[j].getBookName() == name) // find the name of the book
                     {
-                        for (int z= 0; j < members.size(); z++) // for members
+                        for (int z = 0; j < members.size(); z++) // for members
                         {
                             if (members[i].getMemberId() == memberId) // find member id
                             {
