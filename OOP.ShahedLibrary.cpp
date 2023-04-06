@@ -63,7 +63,7 @@ public:
     }
     string showInfo()
     {
-        string str = bookId + "." + name;
+        string str = to_string(bookId) + "." + name;
         return str;
     }
     string getBookName()
@@ -151,6 +151,18 @@ public:
             throw "You are not allowed to borrow more than capacity";
             return false;
         }
+    }
+    bool returnBookFromMember(Book book)
+    {
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books[i].getBookName() == book.getBookName())
+            {
+                books.erase(books.begin() + i);
+                return true;
+            }
+        }
+        throw "This book has not been borrowed";
     }
 };
 
@@ -384,13 +396,44 @@ public:
                             if (libraries[i].listOfBooks()[z].getBookName() == name)
                             {
                                 if (members[i].isMemberAllowedToBorrow(libraries[i].listOfBooks()[z]) == true)
-                                bool borrowStatus = true;
-                                libraries[i].listOfBooks()[z].setTheBorrowStatusOfBook(borrowStatus);
-                                return true;
+                                {
+                                    bool borrowStatus = true;
+                                    libraries[i].listOfBooks()[z].setTheBorrowStatusOfBook(borrowStatus);
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
                             }
-                            else
+                        }
+                    }
+                }
+            }
+        }
+    }
+    bool returnBook(string memberId, int libId, string name)
+    {
+        for (int i = 0; i < libraries.size(); i++)
+        {
+            if (libraries[i].getLibraryId() == libId)
+            {
+                for (int j = 0; j < libraries[i].listOfBooks().size(); j++)
+                {
+                    if (libraries[i].listOfBooks()[j].getBookName() == name)
+                    {
+                        for (int j = 0; j < members.size(); j++)
+                        {
+                            if (members[i].getMemberId() == memberId)
                             {
-                                return false;
+                                if ((members[i].returnBookFromMember(libraries[i].listOfBooks()[j])) == true)
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
                             }
                         }
                     }
@@ -468,4 +511,15 @@ int Library::numOfMembers = 0;
 
 int main()
 {
+    try
+    {
+        LibrariesHandler allOfLibraries;
+        allOfLibraries.createLibrary("Markazi", 20);
+        allOfLibraries.createLibrary("Computer", 12);
+        cout << Library::numOfLibraries;
+    }
+    catch (char const *e)
+    {
+        cout << "erorr :" << e << '\n';
+    }
 }
