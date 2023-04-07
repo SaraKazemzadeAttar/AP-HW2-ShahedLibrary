@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include <vector>
 #include <string.h>
 #include <cmath>
@@ -255,13 +255,14 @@ public:
     }
     bool isThereThisBook(string name)
     {
-        for (int i = 0; i < books.size(); i++)
+        for (int i = 0; i < books.size()+1; i++)
         {
             if (books[i].getBookName() == name)
             {
+                cout<<"gfhdd";
                 return true;
-                cout << "Hello";
             }
+            cout<<"lefhledbf";
         }
         return false;
     }
@@ -462,7 +463,6 @@ public:
             if (libraries[i].isThereThisBook(name) == true)
             {
                 libsHaveThisBook.push_back(libraries[i]);
-                cout << "Hi";
             }
         }
         if (libsHaveThisBook.size() == 0)
@@ -545,9 +545,9 @@ int main()
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        //cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
-        // cout<<allOfLibraries.size();
-        allOfLibraries.addMember("Sara" , "0200226010");
+        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        //cout<<allOfLibraries.size();
+        allOfLibraries.addMember("Sara" , "0200226210");
         allOfLibraries.addMember("Saba" , "0200220210");
     }
     catch (char const *e)
