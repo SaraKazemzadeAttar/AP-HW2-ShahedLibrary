@@ -456,7 +456,7 @@ public:
     {
         return Book::numOfBooks;
     }
-    vector<Library> listOfLibsHavetheBook(string name)
+    vector<Library> listOfLibsHavetheBook(string name)// called in findNearestLibraryByPosition and findLibrariesHaveBook
     {
         vector<Library> libsHaveThisBook;
         for (int i = 0; i < libraries.size(); i++)
@@ -489,7 +489,7 @@ public:
         }
         return listLibsThisBookExist[left];
     }
-    string sortLibrariesByDistance(vector<Library> libsHaveThisBook, int position)
+    string sortLibrariesByDistance(vector<Library> libsHaveThisBook, int position) // it is called in findLibrariesHaveBook
     {
         for (int i = 0; i < libsHaveThisBook.size(); i++)
         {
@@ -498,6 +498,7 @@ public:
                 if (abs(libsHaveThisBook[j].getPosition()) > abs(libsHaveThisBook[j + 1].getPosition()))
                 {
                     swap(libsHaveThisBook[j], libsHaveThisBook[j + 1]);
+                    cout<<Library::numOfLibraries;
                 }
             }
         }
@@ -510,7 +511,8 @@ public:
     }
     string findLibrariesHaveBook(string name, int position)
     {
-        return sortLibrariesByDistance(listOfLibsHavetheBook(name), position);
+        vector <Library> libsHaveThisBook=listOfLibsHavetheBook(name);
+        return sortLibrariesByDistance(libsHaveThisBook, position);
     }
 };
 
@@ -546,11 +548,11 @@ int main()
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        // cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
         // cout<<allOfLibraries.size();
         allOfLibraries.addMember("Sara", "0200226210");
         allOfLibraries.addMember("Saba", "0200220210");
-        cout<<allOfLibraries.HowManyBooks();
+        //cout<<allOfLibraries.HowManyBooks();
     }
     catch (char const *e)
     {
