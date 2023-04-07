@@ -452,6 +452,10 @@ public:
     {
         return Library::numOfLibraries;
     }
+    int HowManyBooks()
+    {
+        return Book::numOfBooks;
+    }
     vector<Library> listOfLibsHavetheBook(string name)
     {
         vector<Library> libsHaveThisBook;
@@ -546,6 +550,7 @@ int main()
         // cout<<allOfLibraries.size();
         allOfLibraries.addMember("Sara", "0200226210");
         allOfLibraries.addMember("Saba", "0200220210");
+        cout<<allOfLibraries.HowManyBooks();
     }
     catch (char const *e)
     {
