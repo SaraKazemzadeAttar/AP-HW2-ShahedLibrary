@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include <vector>
 #include <string.h>
 #include <cmath>
@@ -60,14 +60,14 @@ public:
         numOfBooks++;
         bookId = numOfBooks;
     }
+    string getBookName()
+    {
+        return name;
+    }
     string showInfo()
     {
         string str = to_string(bookId) + ". " + name;
         return str;
-    }
-    string getBookName()
-    {
-        return name;
     }
     BookType getBookType()
     {
@@ -229,8 +229,7 @@ public:
                 throw "There is a book with this name in the library";
             }
         }
-        Book newBook(book);
-        books.push_back(newBook);
+        books.push_back(book);
     }
     string getInfoOfBooksOfLib()
     {
@@ -255,14 +254,12 @@ public:
     }
     bool isThereThisBook(string name)
     {
-        for (int i = 0; i < books.size()+1; i++)
+        for (int i = 0; i < books.size(); i++)
         {
             if (books[i].getBookName() == name)
             {
-                cout<<"gfhdd";
                 return true;
             }
-            cout<<"lefhledbf";
         }
         return false;
     }
@@ -473,7 +470,7 @@ public:
     }
     Library findNearestLibraryByPosition(string name, int position)
     {
-        vector < Library > listLibsThisBookExist = listOfLibsHavetheBook(name);
+        vector<Library> listLibsThisBookExist = listOfLibsHavetheBook(name);
         int left = 0, right = listLibsThisBookExist.size() - 1;
         while (left < right)
         {
@@ -545,10 +542,10 @@ int main()
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
-        //cout<<allOfLibraries.size();
-        allOfLibraries.addMember("Sara" , "0200226210");
-        allOfLibraries.addMember("Saba" , "0200220210");
+        // cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        // cout<<allOfLibraries.size();
+        allOfLibraries.addMember("Sara", "0200226210");
+        allOfLibraries.addMember("Saba", "0200220210");
     }
     catch (char const *e)
     {
