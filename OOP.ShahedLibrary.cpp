@@ -278,7 +278,7 @@ public:
             {
                 throw "A library with this name already exists";
             }
-            else if (libraries[i].getPosition() == position)
+            if (libraries[i].getPosition() == position)
             {
                 throw "There is now a library in this place";
             }
@@ -450,7 +450,7 @@ public:
     {
         return Library::numOfLibraries;
     }
-    vector<Library> listOfLibsHavetheBook(string &name)
+    vector<Library> listOfLibsHavetheBook(string name)
     {
         vector<Library> libsHaveThisBook;
         for (int i = 0; i < libraries.size(); i++)
@@ -469,11 +469,11 @@ public:
     }
     Library findNearestLibraryByPosition(string name, int position)
     {
-        vector < Library > = listOfLibsHavetheBook(name);
-        int left = 0, right = listOfLibsHavetheBook(name).size() - 1;
+        vector < Library > listLibsThisBookExist = listOfLibsHavetheBook(name);
+        int left = 0, right = listLibsThisBookExist.size() - 1;
         while (left < right)
         {
-            if (abs(listOfLibsHavetheBook(name)[left].getPosition() - position) <= abs(listOfLibsHavetheBook(name)[right].getPosition() - position))
+            if (abs(listLibsThisBookExist[left].getPosition() - position) <= abs(listLibsThisBookExist[right].getPosition() - position))
             {
                 right--;
             }
@@ -482,7 +482,7 @@ public:
                 left++;
             }
         }
-        return listOfLibsHavetheBook(name)[left];
+        return listLibsThisBookExist[left];
     }
     string sortLibrariesByDistance(vector<Library> libsHaveThisBook, int position)
     {
@@ -534,7 +534,7 @@ int main()
         // cout <<firstBook.showInfo() <<endl;
         allOfLibraries.createLibrary("Markazi", 20);
         allOfLibraries.createLibrary("Computer", 12);
-        allOfLibraries.createLibrary("Fani", 12);
+        allOfLibraries.createLibrary("Fani", 4);
         // cout<<firstLib.showInfoOfLib()<<endl;//markazi
         // cout << secondLib.showInfoOfLib() << endl;//com
         // allOfLibraries.filterByTypeAndShowInfo(SCIENTIFIC);
