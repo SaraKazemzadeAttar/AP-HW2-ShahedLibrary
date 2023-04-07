@@ -230,10 +230,10 @@ public:
     }
     string getInfoOfBooksOfLib()
     {
-        string infoOfallBooks="";
+        string infoOfallBooks = "";
         for (int i = 0; i < books.size(); i++)
         {
-            infoOfallBooks+=books[i].showInfo() +'\n';
+            infoOfallBooks += books[i].showInfo() + '\n';
         }
         return infoOfallBooks;
     }
@@ -256,6 +256,7 @@ public:
             if (books[i].getBookName() == name)
             {
                 return true;
+                cout << "Hello";
             }
         }
         return false;
@@ -281,12 +282,9 @@ public:
             {
                 throw "There is now a library in this place";
             }
-            else
-            {
-                Library newLibrary(name, position);
-                libraries.push_back(newLibrary);
-            }
         }
+        Library newLibrary(name, position);
+        libraries.push_back(newLibrary);
     }
     void addBook(int libId, string name, Publisher publisher, BookType type)
     {
@@ -452,7 +450,7 @@ public:
     {
         return Library::numOfLibraries;
     }
-    vector<Library> listOfLibsHavetheBook(string name)
+    vector<Library> listOfLibsHavetheBook(string &name)
     {
         vector<Library> libsHaveThisBook;
         for (int i = 0; i < libraries.size(); i++)
@@ -460,7 +458,7 @@ public:
             if (libraries[i].isThereThisBook(name) == true)
             {
                 libsHaveThisBook.push_back(libraries[i]);
-                cout<<"Hi";
+                cout << "Hi";
             }
         }
         if (libsHaveThisBook.size() == 0)
@@ -471,7 +469,7 @@ public:
     }
     Library findNearestLibraryByPosition(string name, int position)
     {
-        listOfLibsHavetheBook(name);
+        vector < Library > = listOfLibsHavetheBook(name);
         int left = 0, right = listOfLibsHavetheBook(name).size() - 1;
         while (left < right)
         {
@@ -524,13 +522,13 @@ int main()
     Publisher ItsPublisher2("Porteghal", "Shiraz");
     Book firstBook("Clean Code", ItsPublisher, SCIENTIFIC);
     Book secondBook("Blindness", ItsPublisher, CLASSICS);
-    Book thirdBook("Annabelle" , ItsPublisher2 , HORROR);
-    Book fourthBook("Harry Potter" , ItsPublisher2 , FANTASY);
+    Book thirdBook("Annabelle", ItsPublisher2, HORROR);
+    Book fourthBook("Harry Potter", ItsPublisher2, FANTASY);
     Library firstLib("Markazi", 20);
     Library secondLib("Computer", 12);
     Library thirdLib("Fani", 4);
-    Member firstMember ("0200226010" , "Sara");
-    Member secondMember ("0200220210" , "Fati");
+    Member firstMember("0200226010", "Sara");
+    Member secondMember("0200220210", "Fati");
     try
     {
         // cout <<firstBook.showInfo() <<endl;
@@ -539,17 +537,16 @@ int main()
         allOfLibraries.createLibrary("Fani", 12);
         // cout<<firstLib.showInfoOfLib()<<endl;//markazi
         // cout << secondLib.showInfoOfLib() << endl;//com
-        //allOfLibraries.filterByTypeAndShowInfo(SCIENTIFIC);
+        // allOfLibraries.filterByTypeAndShowInfo(SCIENTIFIC);
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        //cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
-        //allOfLibraries.findNearestLibraryByPosition("Clean Code", 4);
-        cout<<allOfLibraries.size();
+        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
+        allOfLibraries.findNearestLibraryByPosition("Clean Code", 4);
+        // cout<<allOfLibraries.size();
     }
     catch (char const *e)
     {
         cout << "erorr :" << e << '\n';
     }
-    return 0;
 }
