@@ -73,6 +73,10 @@ public:
     {
         return type;
     }
+    Publisher getBookPublisher()
+    {
+        return publisher;
+    }
     void setTheBorrowStatusOfBook(bool BorrowStatus)
     {
         if (BorrowStatus == false)
@@ -528,7 +532,7 @@ int main()
     Library secondLib("Computer", 12);
     Library thirdLib("Fani", 4);
     Member firstMember("0200226010", "Sara");
-    Member secondMember("0200220210", "Fati");
+    Member secondMember("0200220210", "Saba");
     try
     {
         // cout <<firstBook.showInfo() <<endl;
@@ -541,9 +545,10 @@ int main()
         allOfLibraries.addBook(1, firstBook);
         allOfLibraries.addBook(2, firstBook);
         allOfLibraries.addBook(3, firstBook);
-        cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
-        allOfLibraries.findNearestLibraryByPosition("Clean Code", 4);
+        //cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
         // cout<<allOfLibraries.size();
+        allOfLibraries.addMember("Sara" , "0200226010");
+        allOfLibraries.addMember("Saba" , "0200220210");
     }
     catch (char const *e)
     {
