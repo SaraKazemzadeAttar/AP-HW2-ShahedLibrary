@@ -534,8 +534,8 @@ int main()
     Library firstLib("Markazi", 20);
     Library secondLib("Computer", 12);
     Library thirdLib("Fani", 4);
-    Member firstMember("0200226010", "Sara");
-    Member secondMember("0200220210", "Saba");
+    Member firstMember("0200000110", "Sara");
+    Member secondMember("0200111111", "Saba");
     try
     {
         // cout <<firstBook.showInfo() <<endl;
@@ -550,8 +550,8 @@ int main()
         allOfLibraries.addBook(3, firstBook);
         cout << allOfLibraries.findLibrariesHaveBook("Clean Code", 4);
         // cout<<allOfLibraries.size();
-        allOfLibraries.addMember("Sara", "0200226210");
-        allOfLibraries.addMember("Saba", "0200220210");
+        allOfLibraries.addMember("Sara", "0200000110");
+        allOfLibraries.addMember("Saba", "0200111111");
         //cout<<allOfLibraries.HowManyBooks();
     }
     catch (char const *e)
